@@ -30,6 +30,7 @@ extension TabBarController{
         let nav1 = UINavigationController(rootViewController: CharViewController())
         let nav2 = UINavigationController(rootViewController: LogOutViewController())
         
+        
         viewControllers = [
         makeVC(vc: nav1, image: UIImage(systemName: "character.book.closed"), selectedImage: UIImage(systemName: "character.book.closed.fill")),
         makeVC(vc: nav2, image: UIImage(systemName: "figure.run.circle"), selectedImage: UIImage(systemName: "figure.run.circle.fill"))
