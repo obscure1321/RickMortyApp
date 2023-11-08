@@ -27,9 +27,12 @@ extension TabBarController{
     }
     
     func generateTabBar() {
+        let nav1 = UINavigationController(rootViewController: CharViewController())
+        let nav2 = UINavigationController(rootViewController: LogOutViewController())
+        
         viewControllers = [
-        makeVC(vc: CharViewController(), image: UIImage(systemName: "character.book.closed"), selectedImage: UIImage(systemName: "character.book.closed.fill")),
-        makeVC(vc: LogOutViewController(), image: UIImage(systemName: "figure.run.circle"), selectedImage: UIImage(systemName: "figure.run.circle.fill"))
+        makeVC(vc: nav1, image: UIImage(systemName: "character.book.closed"), selectedImage: UIImage(systemName: "character.book.closed.fill")),
+        makeVC(vc: nav2, image: UIImage(systemName: "figure.run.circle"), selectedImage: UIImage(systemName: "figure.run.circle.fill"))
         ]
     }
     
@@ -44,10 +47,10 @@ extension TabBarController{
         let bezierPath = UIBezierPath(roundedRect: CGRect(x: positionX, y: positionY, width: width, height: height), cornerRadius: 24)
         roundLayer.path = bezierPath.cgPath
         
-        roundLayer.shadowColor = CGColor(gray: 1, alpha: 1)
-        roundLayer.shadowOffset = CGSize(width: 14, height: 14)
-        roundLayer.shadowOpacity = 1
-        roundLayer.shadowRadius = 40
+        roundLayer.shadowColor = UIColor.black.cgColor
+        roundLayer.shadowOffset = CGSize(width: 4, height: 4)
+        roundLayer.shadowOpacity = 0.8
+        roundLayer.shadowRadius = 4
         
         tabBar.layer.insertSublayer(roundLayer, at: 0)
         tabBar.itemPositioning = .centered
