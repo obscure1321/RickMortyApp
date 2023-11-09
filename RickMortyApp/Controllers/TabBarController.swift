@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Кастомный таббар
 final class TabBarController: UITabBarController {
 // MARK: - life cycle func
     override func viewDidLoad() {
@@ -20,12 +21,19 @@ final class TabBarController: UITabBarController {
 extension TabBarController{
 // MARK: - flow func
     
+    /// Метод присвоения контроллера таббару
+    /// - Parameters:
+    ///   - vc: Вьюконтроллер
+    ///   - image: иконка контроллера
+    ///   - selectedImage: иконка контроллера когда он выбран
+    /// - Returns: возвращает контроллер для присвоения таббару
     func makeVC(vc: UIViewController, image: UIImage?, selectedImage: UIImage?) -> UIViewController {
         vc.tabBarItem.image = image
         vc.tabBarItem.selectedImage = selectedImage
         return vc
     }
     
+    /// Создает навКонтоллеры и передает их таббару
     func generateTabBar() {
         let nav1 = UINavigationController(rootViewController: CharViewController())
         let nav2 = UINavigationController(rootViewController: LogOutViewController())
@@ -37,6 +45,8 @@ extension TabBarController{
         ]
     }
     
+    
+    /// Отрисовка через безье вьюшки для кастомного таббара
     func drawBezier() {
         let positionX: CGFloat = 40
         let positionY: CGFloat = -15
