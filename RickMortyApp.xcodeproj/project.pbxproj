@@ -19,6 +19,7 @@
 		6DB46ADA2AFD2D9C00C4CA83 /* RickMortyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB46AD92AFD2D9C00C4CA83 /* RickMortyService.swift */; };
 		6DB46ADC2AFD2DB000C4CA83 /* RickMortyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB46ADB2AFD2DB000C4CA83 /* RickMortyRequest.swift */; };
 		6DB46ADE2AFD2EB700C4CA83 /* RickMortyEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB46ADD2AFD2EB700C4CA83 /* RickMortyEndpoint.swift */; };
+		6DB46AE02AFE3A0700C4CA83 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB46ADF2AFE3A0700C4CA83 /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		6DB46AD92AFD2D9C00C4CA83 /* RickMortyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickMortyService.swift; sourceTree = "<group>"; };
 		6DB46ADB2AFD2DB000C4CA83 /* RickMortyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickMortyRequest.swift; sourceTree = "<group>"; };
 		6DB46ADD2AFD2EB700C4CA83 /* RickMortyEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickMortyEndpoint.swift; sourceTree = "<group>"; };
+		6DB46ADF2AFE3A0700C4CA83 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				6DB46AB32AFBE43D00C4CA83 /* TabBarController.swift */,
 				6DB46AD52AFBE9D700C4CA83 /* CharViewController.swift */,
 				6DB46AD72AFBE9EC00C4CA83 /* LogOutViewController.swift */,
+				6DB46ADF2AFE3A0700C4CA83 /* CollectionViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				6DB46AD82AFBE9EC00C4CA83 /* LogOutViewController.swift in Sources */,
 				6DB46ADA2AFD2D9C00C4CA83 /* RickMortyService.swift in Sources */,
 				6DB46AD62AFBE9D700C4CA83 /* CharViewController.swift in Sources */,
+				6DB46AE02AFE3A0700C4CA83 /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
