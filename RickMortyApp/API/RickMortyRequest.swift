@@ -9,6 +9,55 @@ import Foundation
 
 /// Объект запроса
 final class RickMortyRequest {
+    //    https://rickandmortyapi.com/api/character/2
+    private struct Constants {
+        static let mainURL = "https://rickandmortyapi.com/api"
+    }
     
+    private let endpoint: RickMortyEndpoint
     
+    private let pathComponents: Set<String>
+    
+    private let queryParameters: [URLQueryItem]
+    
+    /// Создается ссылка для запроса  в виде стринги
+    private var urlString: String {
+        var string = Constants.mainURL
+        string += "/"
+        string += endpoint.rawValue
+        
+        if !pathComponents.isEmpty {
+            pathComponents.forEach ({
+                string += "/\($0)"
+            })
+        }
+        
+        if !queryParameters.isEmpty {
+            string += "?"
+            let argumentString = queryParameters.compactMap({
+                guard let value = $0.value else { return nil }
+                return "\($0.name)=\(value)"
+            }).joined(separator: "&")
+            
+            string += argumentString
+        }
+        
+        return string
+    }
+    
+    public var url: URL? {
+        return URL(string: urlString)
+    }
+    
+    public let httpMethod = "GET"
+    
+    init(
+        endpoint: RickMortyEndpoint,
+        pathComponents: Set<String> = [],
+        queryParameters: [URLQueryItem] = []
+    ) {
+        self.endpoint = endpoint
+        self.pathComponents = pathComponents
+        self.queryParameters = queryParameters
+    }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Result
-struct Result: Codable {
+struct CharacterResult: Codable {
     let id: Int?
     let name: String?
     let status: Status?

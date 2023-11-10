@@ -21,7 +21,11 @@ final class RickMortyService {
     /// - Parameters:
     ///   - request: экземпляр запроса
     ///   - completion: ответ с данными или ошибкой
-    public func execute(_ request: RickMortyRequest, completion: @escaping () -> Void) {
+    public func execute<T: Codable>(
+        _ request: RickMortyRequest,
+        expecting type: T.Type,
+        completion: @escaping (Result<T, Error>
+        ) -> Void) {
         
     }
 }
