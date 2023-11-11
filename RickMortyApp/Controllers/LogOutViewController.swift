@@ -22,7 +22,6 @@ final class LogOutViewController: UIViewController {
         navigationBar.items = [navigationItem]
         navigationItem.largeTitleDisplayMode = .automatic
         navigationBar.prefersLargeTitles = true
-        navigationBar.shadowImage = UIImage()
         
         view.addSubview(navigationBar)
     }

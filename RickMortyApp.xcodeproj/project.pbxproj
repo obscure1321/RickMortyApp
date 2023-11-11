@@ -22,6 +22,7 @@
 		6DB46AE02AFE3A0700C4CA83 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB46ADF2AFE3A0700C4CA83 /* CollectionViewCell.swift */; };
 		6DB46AE22AFFCC2B00C4CA83 /* GetAllCharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB46AE12AFFCC2B00C4CA83 /* GetAllCharactersResponse.swift */; };
 		6DB46AE42AFFDD7400C4CA83 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB46AE32AFFDD7400C4CA83 /* CharacterViewModel.swift */; };
+		6DB46AE82B0036CB00C4CA83 /* CollectionVIewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB46AE72B0036CB00C4CA83 /* CollectionVIewCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		6DB46ADF2AFE3A0700C4CA83 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		6DB46AE12AFFCC2B00C4CA83 /* GetAllCharactersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllCharactersResponse.swift; sourceTree = "<group>"; };
 		6DB46AE32AFFDD7400C4CA83 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
+		6DB46AE72B0036CB00C4CA83 /* CollectionVIewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionVIewCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +95,7 @@
 				6DB46AB32AFBE43D00C4CA83 /* TabBarController.swift */,
 				6DB46AD52AFBE9D700C4CA83 /* CharViewController.swift */,
 				6DB46AD72AFBE9EC00C4CA83 /* LogOutViewController.swift */,
-				6DB46ADF2AFE3A0700C4CA83 /* CollectionViewCell.swift */,
+				6DB46AE62B0033C100C4CA83 /* Cell */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				6DB46AE32AFFDD7400C4CA83 /* CharacterViewModel.swift */,
+				6DB46AE72B0036CB00C4CA83 /* CollectionVIewCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -156,6 +159,14 @@
 				6DB46AB12AFBE43D00C4CA83 /* SceneDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		6DB46AE62B0033C100C4CA83 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6DB46ADF2AFE3A0700C4CA83 /* CollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +246,7 @@
 				6DB46AD02AFBE78900C4CA83 /* Episodes.swift in Sources */,
 				6DB46AE22AFFCC2B00C4CA83 /* GetAllCharactersResponse.swift in Sources */,
 				6DB46ADC2AFD2DB000C4CA83 /* RickMortyRequest.swift in Sources */,
+				6DB46AE82B0036CB00C4CA83 /* CollectionVIewCellViewModel.swift in Sources */,
 				6DB46AB22AFBE43D00C4CA83 /* SceneDelegate.swift in Sources */,
 				6DB46AE42AFFDD7400C4CA83 /* CharacterViewModel.swift in Sources */,
 				6DB46AD82AFBE9EC00C4CA83 /* LogOutViewController.swift in Sources */,

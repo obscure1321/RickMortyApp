@@ -13,8 +13,7 @@ struct CharacterViewModel {
                                         expecting: GetAllCharactersResponse.self) { result in
             switch result {
             case .success(let model):
-                print("Total: " + String(model.info.pages))
-                print("Page result count: " + String(model.results.count))
+                print("Example image url: " + String(model.results.first?.image ?? "No image"))
             case .failure(let error):
                 print(String(describing: error))
             }

@@ -25,8 +25,8 @@ class CollectionViewCell: UICollectionViewCell {
     
     private let imgView: UIImageView = {
         let element = UIImageView()
-        element.image = UIImage(named: "maki")
-        element.contentMode = .scaleToFill
+//        element.image = UIImage(named: "maki")
+        element.contentMode = .scaleAspectFit
         element.clipsToBounds = true
         element.layer.cornerRadius = 10
         element.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +35,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     private let nameLabel: UILabel = {
         let element = UILabel()
-        element.text = "Rick Sanches"
+//        element.text = "Rick Sanches"
         element.textAlignment = .left
         element.font = UIFont.boldSystemFont(ofSize: element.font.pointSize)
         element.translatesAutoresizingMaskIntoConstraints = false
@@ -44,17 +44,47 @@ class CollectionViewCell: UICollectionViewCell {
     
     private let statusLabel: UILabel = {
         let element = UILabel()
-        element.text = "Status: alive"
+//        element.text = "Status: alive"
         element.textAlignment = .left
         element.font = UIFont.systemFont(ofSize: element.font.pointSize, weight: .thin)
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
     
-// MARK: - flow funcs
-    func configure() {
+// MARK: - life cycle funcs
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setViews()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("Unsupported")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imgView.image = nil
+        nameLabel.text = nil
+        statusLabel.text = nil
+    }
+    
+// MARK: - flow funcs
+    func configure(with viewModel: CollectionVIewCellViewModel) {
         setConstraints()
+        nameLabel.text = viewModel.characterName
+        statusLabel.text = viewModel.characterStatusText
+        viewModel.fetchImg { [weak self] result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+                    self?.imgView.image = image
+                }
+            case .failure(let error):
+                print(String(describing: error))
+                break
+            }
+        }
     }
     
     func setViews() {

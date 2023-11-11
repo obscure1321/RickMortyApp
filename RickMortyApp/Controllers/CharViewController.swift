@@ -9,12 +9,24 @@ import UIKit
 
 final class CharViewController: UIViewController {
 // MARK: - properties
+    private let viewModel = CharacterViewModel()
+    
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        
         let element = UICollectionView(frame: .zero, collectionViewLayout: layout)
         element.backgroundColor = .clear
+        element.translatesAutoresizingMaskIntoConstraints = false
+        element.showsVerticalScrollIndicator = false
+        element.isHidden = true
+        element.alpha = 0
+        element.register(CollectionViewCell.self, forCellWithReuseIdentifier: "CollectionViewCell")
+        return element
+    }()
+    
+    private let spinner: UIActivityIndicatorView = {
+        let element = UIActivityIndicatorView(style: .large)
+        element.hidesWhenStopped = true
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
@@ -26,19 +38,18 @@ final class CharViewController: UIViewController {
         setUp()
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-    }
-    
 // MARK: - flow funcs
     private func setUp() {
         setNavBar()
         setCollection()
         addViews()
         setConstraints()
+        spinner.startAnimating()
+        viewModel.fetchCharacters()
     }
     
     private func addViews() {
+        view.addSubview(spinner)
         view.addSubview(collectionView)
     }
     
@@ -49,20 +60,33 @@ final class CharViewController: UIViewController {
         navigationBar.items = [navigationItem]
         navigationItem.largeTitleDisplayMode = .automatic
         navigationBar.prefersLargeTitles = true
-        navigationBar.shadowImage = UIImage()
+        navigationBar.isTranslucent = true
         
         view.addSubview(navigationBar)
     }
     
     private func setCollection() {
-        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "CollectionViewCell")
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.showsVerticalScrollIndicator = false
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            self.spinner.stopAnimating()
+            
+            self.collectionView.isHidden = false
+            
+            UIView.animate(withDuration: 0.4) {
+                self.collectionView.alpha = 1
+            }
+        })
     }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
+            spinner.heightAnchor.constraint(equalToConstant: 120),
+            spinner.widthAnchor.constraint(equalToConstant: 120),
+            spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            
             collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: (view.frame.height / 6.5 + 10)),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
@@ -79,7 +103,10 @@ extension CharViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as? CollectionViewCell else { return UICollectionViewCell() }
-        cell.configure()
+        let viewModel = CollectionVIewCellViewModel(characterName: "advk",
+                                                    characterStatus: .alive,
+                                                    characterImgUrl: URL(string: "https://rickandmortyapi.com/api/character/avatar/24.jpeg"))
+        cell.configure(with: viewModel)
         return cell
     }
     
@@ -92,5 +119,4 @@ extension CharViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10.0
     }
-    
 }
