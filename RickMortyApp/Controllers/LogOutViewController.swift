@@ -16,7 +16,7 @@ final class LogOutViewController: UIViewController {
     }
 
     private func setNavBar() {
-        let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 140))
+        let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: ( view.frame.height / 6.5)))
         navigationBar.backgroundColor = .systemTeal
         let navigationItem = UINavigationItem.init(title: "Log Out")
         navigationBar.items = [navigationItem]

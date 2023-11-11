@@ -22,23 +22,11 @@ final class CharViewController: UIViewController {
 // MARK: - life cycle funcs
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.backgroundColor = .white
-//        setNavBar()
-//        
-//        let request = RickMortyRequest(
-//            endpoint: .character,
-//            queryParameters: [
-//            URLQueryItem(name: "name", value: "rick"),
-//            URLQueryItem(name: "status", value: "alive")
-//            ]
-//        )
-//        
-//        print(request.url)
+        setUp()
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        setUp()
     }
     
 // MARK: - flow funcs
@@ -55,7 +43,7 @@ final class CharViewController: UIViewController {
     }
     
     private func setNavBar() {
-        let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 140))
+        let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: ( view.frame.height / 6.5)))
         navigationBar.backgroundColor = .systemTeal
         let navigationItem = UINavigationItem.init(title: "Characters")
         navigationBar.items = [navigationItem]
@@ -75,9 +63,9 @@ final class CharViewController: UIViewController {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: (view.frame.height / 6.5 + 10)),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
@@ -96,13 +84,13 @@ extension CharViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth = Int((collectionView.frame.width - 20) / 2)
-        let cellHeight = 200
+        let cellWidth = Int((collectionView.frame.width - 10) / 2)
+        let cellHeight = Int(view.frame.height / 3.5)
         return CGSize(width: cellWidth, height: cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20.0
+        return 10.0
     }
     
 }

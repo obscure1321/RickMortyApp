@@ -54,10 +54,10 @@ extension TabBarController{
     
     /// Отрисовка через безье вьюшки для кастомного таббара
     func drawBezier() {
-        let positionX: CGFloat = 40
-        let positionY: CGFloat = -15
+        let positionX: CGFloat = 60
+        let positionY: CGFloat = -13
         let width = tabBar.bounds.width - positionX * 2
-        let height = 68.0
+        let height = 60.0
         
         let roundLayer = CAShapeLayer()
         
