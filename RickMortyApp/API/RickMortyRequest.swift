@@ -16,7 +16,7 @@ final class RickMortyRequest {
     
     private let endpoint: RickMortyEndpoint
     
-    private let pathComponents: Set<String>
+    private let pathComponents: [String]
     
     private let queryParameters: [URLQueryItem]
     
@@ -53,11 +53,15 @@ final class RickMortyRequest {
     
     init(
         endpoint: RickMortyEndpoint,
-        pathComponents: Set<String> = [],
+        pathComponents: [String] = [],
         queryParameters: [URLQueryItem] = []
     ) {
         self.endpoint = endpoint
         self.pathComponents = pathComponents
         self.queryParameters = queryParameters
     }
+}
+
+extension RickMortyRequest {
+    static let listCharacters = RickMortyRequest(endpoint: .character)
 }

@@ -74,5 +74,4 @@ extension TabBarController{
         tabBar.itemSpacing = 80
         roundLayer.fillColor = UIColor.white.cgColor
     }
-    
 }

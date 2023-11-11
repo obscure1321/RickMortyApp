@@ -22,6 +22,7 @@ final class CharViewController: UIViewController {
 // MARK: - life cycle funcs
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         setUp()
     }
     
@@ -31,7 +32,6 @@ final class CharViewController: UIViewController {
     
 // MARK: - flow funcs
     private func setUp() {
-        view.backgroundColor = .white
         setNavBar()
         setCollection()
         addViews()

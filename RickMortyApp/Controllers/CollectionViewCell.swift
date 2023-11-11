@@ -11,13 +11,15 @@ class CollectionViewCell: UICollectionViewCell {
 // MARK: - properties
     private let mainView: UIView = {
         let element = UIView()
-        element.backgroundColor = .white
+        element.backgroundColor = .systemGroupedBackground
         element.layer.cornerRadius = 12
         element.translatesAutoresizingMaskIntoConstraints = false
         element.layer.shadowColor = UIColor.black.cgColor
         element.layer.shadowOffset = CGSize(width: 2, height: 2)
         element.layer.shadowRadius = 2
         element.layer.shadowOpacity = 0.8
+        element.layer.borderWidth = 1
+        element.layer.borderColor = UIColor.systemGray.cgColor
         return element
     }()
     
@@ -35,7 +37,6 @@ class CollectionViewCell: UICollectionViewCell {
         let element = UILabel()
         element.text = "Rick Sanches"
         element.textAlignment = .left
-        element.textColor = .black
         element.font = UIFont.boldSystemFont(ofSize: element.font.pointSize)
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
@@ -45,7 +46,6 @@ class CollectionViewCell: UICollectionViewCell {
         let element = UILabel()
         element.text = "Status: alive"
         element.textAlignment = .left
-        element.textColor = .lightGray
         element.font = UIFont.systemFont(ofSize: element.font.pointSize, weight: .thin)
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
