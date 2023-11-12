@@ -72,6 +72,6 @@ extension TabBarController{
         tabBar.layer.insertSublayer(roundLayer, at: 0)
         tabBar.itemPositioning = .centered
         tabBar.itemSpacing = 80
-        roundLayer.fillColor = UIColor.white.cgColor
+        roundLayer.fillColor = UIColor.systemGroupedBackground.cgColor
     }
 }

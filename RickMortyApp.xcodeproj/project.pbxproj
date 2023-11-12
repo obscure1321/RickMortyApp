@@ -25,6 +25,7 @@
 		6DB46AE82B0036CB00C4CA83 /* CollectionVIewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB46AE72B0036CB00C4CA83 /* CollectionVIewCellViewModel.swift */; };
 		6DB46AEA2B00D72200C4CA83 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB46AE92B00D72200C4CA83 /* DetailViewController.swift */; };
 		6DB46AEC2B00D99200C4CA83 /* DetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB46AEB2B00D99200C4CA83 /* DetailViewViewModel.swift */; };
+		6DB46AF02B016A4000C4CA83 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB46AEF2B016A4000C4CA83 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		6DB46AE72B0036CB00C4CA83 /* CollectionVIewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionVIewCellViewModel.swift; sourceTree = "<group>"; };
 		6DB46AE92B00D72200C4CA83 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		6DB46AEB2B00D99200C4CA83 /* DetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewViewModel.swift; sourceTree = "<group>"; };
+		6DB46AEF2B016A4000C4CA83 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +84,6 @@
 			children = (
 				6DB46ACA2AFBE6D200C4CA83 /* Application */,
 				6DB46AC92AFBE6A700C4CA83 /* Resources */,
-				6DB46AC82AFBE69F00C4CA83 /* Manager */,
 				6DB46AC72AFBE68900C4CA83 /* API */,
 				6DB46AC62AFBE68100C4CA83 /* ViewModels */,
 				6DB46AC52AFBE67800C4CA83 /* Views */,
@@ -97,10 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				6DB46AB32AFBE43D00C4CA83 /* TabBarController.swift */,
-				6DB46AE92B00D72200C4CA83 /* DetailViewController.swift */,
-				6DB46AD52AFBE9D700C4CA83 /* CharViewController.swift */,
-				6DB46AD72AFBE9EC00C4CA83 /* LogOutViewController.swift */,
-				6DB46AE62B0033C100C4CA83 /* Cell */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -118,6 +115,10 @@
 		6DB46AC52AFBE67800C4CA83 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6DB46AE92B00D72200C4CA83 /* DetailViewController.swift */,
+				6DB46AD52AFBE9D700C4CA83 /* CharViewController.swift */,
+				6DB46AD72AFBE9EC00C4CA83 /* LogOutViewController.swift */,
+				6DB46AE62B0033C100C4CA83 /* Cell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -142,13 +143,6 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		6DB46AC82AFBE69F00C4CA83 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Manager;
-			sourceTree = "<group>";
-		};
 		6DB46AC92AFBE6A700C4CA83 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				6DB46ADF2AFE3A0700C4CA83 /* CollectionViewCell.swift */,
+				6DB46AEF2B016A4000C4CA83 /* TableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -259,6 +254,7 @@
 				6DB46ADA2AFD2D9C00C4CA83 /* RickMortyService.swift in Sources */,
 				6DB46AEA2B00D72200C4CA83 /* DetailViewController.swift in Sources */,
 				6DB46AD62AFBE9D700C4CA83 /* CharViewController.swift in Sources */,
+				6DB46AF02B016A4000C4CA83 /* TableViewCell.swift in Sources */,
 				6DB46AEC2B00D99200C4CA83 /* DetailViewViewModel.swift in Sources */,
 				6DB46AE02AFE3A0700C4CA83 /* CollectionViewCell.swift in Sources */,
 			);

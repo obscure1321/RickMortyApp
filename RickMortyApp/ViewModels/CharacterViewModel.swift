@@ -7,13 +7,14 @@
 
 import UIKit
 
+// MARK: - custom protocol
 protocol CharacterViewModelProtocol: AnyObject {
     func didLoadInitialCharacters()
     func didSelectCharacter(_ character: CharacterResult)
 }
 
 public class CharacterViewModel {
-    
+// MARK: - properties
     weak var delegate: CharacterViewModelProtocol?
     
     var characters: [CharacterResult] = [] {
@@ -31,6 +32,7 @@ public class CharacterViewModel {
     
     var cellViewModels: [CollectionVIewCellViewModel] = []
     
+// MARK: - func to get data
     ///  показывает только 20 персонажей
     func fetchCharacters() {
         RickMortyService.shared.execute(.listCharacters,

@@ -9,7 +9,6 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
 // MARK: - properties
-    
     private let mainView: UIView = {
         let element = UIView()
         element.backgroundColor = .systemGroupedBackground
@@ -52,7 +51,7 @@ class CollectionViewCell: UICollectionViewCell {
         return element
     }()
     
-// MARK: - life cycle funcs
+// MARK: - init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setViews()
@@ -62,6 +61,7 @@ class CollectionViewCell: UICollectionViewCell {
         fatalError("Unsupported")
     }
     
+// MARK: - life cycle func
     override func prepareForReuse() {
         super.prepareForReuse()
         imgView.image = nil

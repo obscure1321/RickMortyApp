@@ -69,15 +69,6 @@ final class CharViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         viewModel.delegate = self
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-//            self.spinner.stopAnimating()
-//            
-//            self.collectionView.isHidden = false
-//            
-//            UIView.animate(withDuration: 0.4) {
-//                self.collectionView.alpha = 1
-//            }
-//        })
     }
     
     private func setConstraints() {
@@ -104,6 +95,7 @@ final class CharViewController: UIViewController {
         detailVC.statusText = character.status?.rawValue ?? "Unknown"
         detailVC.locationText = character.location?.name ?? "Unknown"
         detailVC.imageUrl = character.image ?? "https://rickandmortyapi.com/api/character/avatar/8.jpeg"
+        detailVC.episodesArray = character.episode ?? []
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }

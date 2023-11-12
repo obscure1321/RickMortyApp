@@ -8,13 +8,15 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
-    
+// MARK: - variables
     var episodesArray: [String] = []
+    var episodesRawArray: [String] = []
     var genderText = ""
     var statusText: Status.RawValue = ""
     var locationText = ""
     var imageUrl = ""
     
+// MARK: - properties
     private let imgView: UIImageView = {
         let element = UIImageView()
         element.contentMode = .scaleToFill
@@ -61,7 +63,7 @@ final class DetailViewController: UIViewController {
     private let episodesTableView: UITableView = {
         let element = UITableView()
         element.translatesAutoresizingMaskIntoConstraints = false
-        element.backgroundColor = .systemMint
+        element.backgroundColor = .clear
         element.alwaysBounceVertical = true
         element.separatorStyle = .none
         return element
@@ -69,6 +71,7 @@ final class DetailViewController: UIViewController {
     
     private let viewModel: DetailViewViewModel
     
+// MARK: - init
     init(viewModel: DetailViewViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -78,13 +81,17 @@ final class DetailViewController: UIViewController {
         fatalError("Unsupported")
     }
     
+// MARK: - life cycle func
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
         setConstraints()
+        setDelegate()
+        setEpisodesArray()
         setLabels()
     }
     
+// MARK: - flow funcs
     private func configureView(){
         view.backgroundColor = .systemBackground
         title = viewModel.title
@@ -94,6 +101,15 @@ final class DetailViewController: UIViewController {
         view.addSubview(locationLabel)
         view.addSubview(episodesLabel)
         view.addSubview(episodesTableView)
+    }
+    
+    private func setEpisodesArray() {
+        for episode in episodesArray {
+            if let lasIndex = episode.lastIndex(of: "/") {
+                let result = String(episode.suffix(from: episode.index(after: lasIndex)))
+                episodesRawArray.append(result)
+            }
+        }
     }
     
     private func setLabels() {
@@ -132,6 +148,12 @@ final class DetailViewController: UIViewController {
         }.resume()
     }
     
+    private func setDelegate() {
+        episodesTableView.delegate = self
+        episodesTableView.dataSource = self
+        episodesTableView.register(TableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+    }
+    
     private func setConstraints() {
         NSLayoutConstraint.activate([
             imgView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
@@ -164,5 +186,29 @@ final class DetailViewController: UIViewController {
             episodesTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             episodesTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
         ])
+    }
+}
+
+// MARK: - extension
+extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        episodesRawArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = episodesTableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell else {
+            return UITableViewCell()
+        }
+        cell.reuseCell(value: episodesRawArray[indexPath.row])
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        tableView.frame.height / 5
     }
 }
