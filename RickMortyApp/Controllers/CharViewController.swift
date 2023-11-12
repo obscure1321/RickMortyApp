@@ -68,16 +68,16 @@ final class CharViewController: UIViewController {
     private func setCollection() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            self.spinner.stopAnimating()
-            
-            self.collectionView.isHidden = false
-            
-            UIView.animate(withDuration: 0.4) {
-                self.collectionView.alpha = 1
-            }
-        })
+        viewModel.delegate = self
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+//            self.spinner.stopAnimating()
+//            
+//            self.collectionView.isHidden = false
+//            
+//            UIView.animate(withDuration: 0.4) {
+//                self.collectionView.alpha = 1
+//            }
+//        })
     }
     
     private func setConstraints() {
@@ -93,20 +93,40 @@ final class CharViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+    
+    private func charView(
+        _ charView: CharViewController,
+        character: CharacterResult
+    ) {
+        let viewModel = DetailViewViewModel(character: character)
+        let detailVC = DetailViewController(viewModel: viewModel)
+        
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
 // MARK: - extension
-extension CharViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension CharViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CharacterViewModelProtocol {
+    func didSelectCharacter(_ character: CharacterResult) {
+        charView(self, character: character)
+    }
+    
+    func didLoadInitialCharacters() {
+        spinner.stopAnimating()
+        collectionView.isHidden = false
+        collectionView.reloadData()
+        UIView.animate(withDuration: 0.4) {
+            self.collectionView.alpha = 1
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        24
+        return viewModel.cellViewModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as? CollectionViewCell else { return UICollectionViewCell() }
-        let viewModel = CollectionVIewCellViewModel(characterName: "advk",
-                                                    characterStatus: .alive,
-                                                    characterImgUrl: URL(string: "https://rickandmortyapi.com/api/character/avatar/24.jpeg"))
-        cell.configure(with: viewModel)
+        cell.configure(with: self.viewModel.cellViewModels[indexPath.row])
         return cell
     }
     
@@ -118,5 +138,11 @@ extension CharViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let character = viewModel.characters[indexPath.row]
+        didSelectCharacter(character)
     }
 }

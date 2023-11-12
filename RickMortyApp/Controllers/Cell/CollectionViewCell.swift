@@ -26,7 +26,7 @@ class CollectionViewCell: UICollectionViewCell {
     private let imgView: UIImageView = {
         let element = UIImageView()
 //        element.image = UIImage(named: "maki")
-        element.contentMode = .scaleAspectFit
+        element.contentMode = .scaleToFill
         element.clipsToBounds = true
         element.layer.cornerRadius = 10
         element.translatesAutoresizingMaskIntoConstraints = false
@@ -72,7 +72,7 @@ class CollectionViewCell: UICollectionViewCell {
     func configure(with viewModel: CollectionVIewCellViewModel) {
         setConstraints()
         nameLabel.text = viewModel.characterName
-        statusLabel.text = viewModel.characterStatusText
+        statusLabel.text = "Status: \(viewModel.characterStatusText)"
         viewModel.fetchImg { [weak self] result in
             switch result {
             case .success(let data):
