@@ -100,7 +100,10 @@ final class CharViewController: UIViewController {
     ) {
         let viewModel = DetailViewViewModel(character: character)
         let detailVC = DetailViewController(viewModel: viewModel)
-        
+        detailVC.genderText = character.gender?.rawValue ?? "Unknown"
+        detailVC.statusText = character.status?.rawValue ?? "Unknown"
+        detailVC.locationText = character.location?.name ?? "Unknown"
+        detailVC.imageUrl = character.image ?? "https://rickandmortyapi.com/api/character/avatar/8.jpeg"
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }

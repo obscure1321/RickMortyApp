@@ -9,6 +9,7 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
 // MARK: - properties
+    
     private let mainView: UIView = {
         let element = UIView()
         element.backgroundColor = .systemGroupedBackground
@@ -23,7 +24,7 @@ class CollectionViewCell: UICollectionViewCell {
         return element
     }()
     
-    private let imgView: UIImageView = {
+    let imgView: UIImageView = {
         let element = UIImageView()
 //        element.image = UIImage(named: "maki")
         element.contentMode = .scaleToFill

@@ -10,6 +10,8 @@ import Foundation
 final class DetailViewViewModel {
     private let character: CharacterResult
     
+    var imageUrl: URL?
+    
     init(character: CharacterResult) {
         self.character = character
     }
@@ -17,5 +19,4 @@ final class DetailViewViewModel {
     public var title: String {
         character.name?.uppercased() ?? "Unknown"
     }
-    
 }

@@ -48,10 +48,4 @@ public class CharacterViewModel {
             }
         }
     }
-    
-    
-    /// Подгружает оставшихся персонажей
-    func fetchAdditionalCharacters() {
-        
-    }
 }
