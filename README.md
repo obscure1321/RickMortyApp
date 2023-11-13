@@ -24,7 +24,7 @@
 >> Экран второй вкладки - экран Log Out, содержит кнопку выхода из профиля, который переносит на экран авторизации 
 
 ## <a id="Presentation"></a>Презентация
-![Главный экран](./presentation/collage.png)
+![RickAndMorty](https://raw.githubusercontent.com/obscure1321/RickMortyApp/dev/collage.png)
 
 ## <a id="Task"></a>Примечания по техническому заданию
 > Использовать UIKit
