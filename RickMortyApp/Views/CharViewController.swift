@@ -54,13 +54,19 @@ final class CharViewController: UIViewController {
     }
     
     private func setNavBar() {
-        let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: ( view.frame.height / 6.5)))
-        navigationBar.backgroundColor = .systemTeal
-        let navigationItem = UINavigationItem.init(title: "Characters")
-        navigationBar.items = [navigationItem]
+        let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: (view.frame.height / 6.5)))
+        navigationBar.backgroundColor = .deepGreen
+        
+        let navigationItem = UINavigationItem(title: "Characters")
         navigationItem.largeTitleDisplayMode = .automatic
+        
+        navigationBar.items = [navigationItem]
         navigationBar.prefersLargeTitles = true
         navigationBar.isTranslucent = true
+        
+        // Установите цвет текста для обычных и больших заголовков
+        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
         view.addSubview(navigationBar)
     }
