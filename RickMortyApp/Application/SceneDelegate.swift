@@ -19,8 +19,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-//        window.rootViewController = UINavigationController(rootViewController: TabBarController()) 
-        window.rootViewController = UINavigationController(rootViewController: LoginScreenController())
+        
+        let isAuthorized = UserDefaults.standard.bool(forKey: "Authorized")
+        
+        if !isAuthorized {
+            window.rootViewController = LoginScreenController()
+        } else {
+            window.rootViewController = UINavigationController(rootViewController: TabBarController())
+        }
+        
         window.makeKeyAndVisible()
         self.window = window
     }

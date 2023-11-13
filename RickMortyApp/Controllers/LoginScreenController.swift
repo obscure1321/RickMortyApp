@@ -159,6 +159,15 @@ class LoginScreenController: UIViewController {
         ])
     }
     
+    private func showAlert(title: String) {
+        let alert = UIAlertController(title: title,
+                                      message: nil, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .destructive)
+        alert.addAction(action)
+        present(alert, animated: true)
+    }
+    
+// MARK: - objc funcs
     @objc func loginButtonTapped() {
         guard let enteredEmail = emailTextField.text,
               let enteredpassword = passwordTextField.text else {
@@ -169,18 +178,30 @@ class LoginScreenController: UIViewController {
             username: enteredEmail,
             password: enteredpassword
         ){
-            navigationController?.pushViewController(TabBarController(), animated: true)
+            let vc = UINavigationController(rootViewController: TabBarController())  // go to main VC
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
+            
+            UserDefaults.standard.set(true, forKey: "Authorized")
+        } else if emailTextField.text == "" && passwordTextField.text == "" {
+            showAlert(title: "Enter email and password")
         } else {
-            print("Errorrrrr")
+            showAlert(title: "Wrong email or password")
         }
     }
     
     @objc func signupTapped() {
-        guard let email = emailTextField.text,
-                let pasword = passwordTextField.text else {
-            return
+        if emailTextField.text == "" && passwordTextField.text == "" {
+            showAlert(title: "Enter email and password")
+        } else {
+            guard let email = emailTextField.text,
+                  let pasword = passwordTextField.text else {
+                return
+            }
+            
+            keychainManager.saveCredentials(username: email, password: pasword)
+            
+            showAlert(title: "Email and password is saved")
         }
-        
-        keychainManager.saveCredentials(username: email, password: pasword)
     }
 }
