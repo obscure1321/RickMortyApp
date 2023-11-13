@@ -51,7 +51,7 @@ class LoginScreenController: UIViewController {
 
     private let emailTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Email"
+        textField.placeholder = "Username"
         textField.borderStyle = .none
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
