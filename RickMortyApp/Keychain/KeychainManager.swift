@@ -9,11 +9,11 @@ import Foundation
 import Security
 
 class KeychainManager {
-
+// MARK: - properties
     private let serviceName = "YourAppService"
     private let usernameKey = "Username"
     private let passwordKey = "Password"
-
+// MARK: - func to save data
     func saveCredentials(username: String, password: String) {
         let credentials = "\(username):\(password)"
         let credentialsData = credentials.data(using: .utf8)!
@@ -27,6 +27,7 @@ class KeychainManager {
         SecItemAdd(query as CFDictionary, nil)
     }
 
+// MARK: - func to check the data
     func isValidCredentials(username: String, password: String) -> Bool {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,

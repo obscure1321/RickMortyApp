@@ -162,7 +162,7 @@ class LoginScreenController: UIViewController {
     private func showAlert(title: String) {
         let alert = UIAlertController(title: title,
                                       message: nil, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .destructive)
+        let action = UIAlertAction(title: "OK", style: .default)
         alert.addAction(action)
         present(alert, animated: true)
     }
