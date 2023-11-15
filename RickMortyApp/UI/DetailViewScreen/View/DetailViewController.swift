@@ -85,10 +85,13 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        setConstraints()
         setDelegate()
         setEpisodesArray()
         setLabels()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        setConstraints()
     }
     
     // MARK: - flow funcs

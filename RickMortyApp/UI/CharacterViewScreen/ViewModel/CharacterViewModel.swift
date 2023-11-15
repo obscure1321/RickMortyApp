@@ -13,7 +13,7 @@ protocol CharacterViewModelProtocol: AnyObject {
     func didSelectCharacter(_ character: CharacterResult)
 }
 
-public class CharacterViewModel {
+final class CharacterViewModel {
     // MARK: - properties
     weak var delegate: CharacterViewModelProtocol?
     

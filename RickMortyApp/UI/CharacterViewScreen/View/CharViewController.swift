@@ -38,12 +38,15 @@ final class CharViewController: UIViewController {
         setUp()
     }
     
+    override func viewWillLayoutSubviews() {
+        setConstraints()
+    }
+    
     // MARK: - flow funcs
     private func setUp() {
         setNavBar()
         setCollection()
         addViews()
-        setConstraints()
         spinner.startAnimating()
         viewModel.fetchCharacters()
     }
@@ -106,20 +109,8 @@ final class CharViewController: UIViewController {
 }
 
 // MARK: - extension
-extension CharViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CharacterViewModelProtocol {
-    func didSelectCharacter(_ character: CharacterResult) {
-        charView(self, character: character)
-    }
-    
-    func didLoadInitialCharacters() {
-        spinner.stopAnimating()
-        collectionView.isHidden = false
-        collectionView.reloadData()
-        UIView.animate(withDuration: 0.4) {
-            self.collectionView.alpha = 1
-        }
-    }
-    
+extension CharViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.cellViewModels.count
     }
@@ -144,5 +135,21 @@ extension CharViewController: UICollectionViewDelegate, UICollectionViewDataSour
         collectionView.deselectItem(at: indexPath, animated: true)
         let character = viewModel.characters[indexPath.row]
         didSelectCharacter(character)
+    }
+}
+
+extension CharViewController: CharacterViewModelProtocol {
+    
+    func didSelectCharacter(_ character: CharacterResult) {
+        charView(self, character: character)
+    }
+    
+    func didLoadInitialCharacters() {
+        spinner.stopAnimating()
+        collectionView.isHidden = false
+        collectionView.reloadData()
+        UIView.animate(withDuration: 0.4) {
+            self.collectionView.alpha = 1
+        }
     }
 }

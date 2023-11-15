@@ -36,13 +36,16 @@ final class LogOutViewController: UIViewController {
         setUpView()
     }
     
+    override func viewWillLayoutSubviews() {
+        setConstraints()
+    }
+    
     // MARK: - flow funcs
     private func setUpView() {
         view.backgroundColor = .systemBackground
         view.addSubview(imgView)
         view.addSubview(logOutButton)
         setNavBar()
-        setConstraints()
         logOutButton.addTarget(self, action: #selector(logOutTapped), for: .touchUpInside)
     }
     

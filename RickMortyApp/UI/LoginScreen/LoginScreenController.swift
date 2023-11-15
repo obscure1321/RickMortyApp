@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginScreenController: UIViewController {
+final class LoginScreenController: UIViewController {
     // MARK: - UIProperties
     private let emailView: UIView = {
         let element = UIView()
@@ -87,17 +87,20 @@ class LoginScreenController: UIViewController {
     // MARK: - properties
     let keychainManager = KeychainManager()
     
-    // MARK: - life cycyle func
+    // MARK: - life cycle func
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        setConstraints()
     }
     
     // MARK: - flow funcs
     func setupUI() {
         view.backgroundColor = .systemBackground
         addViews()
-        setConstraints()
     }
     
     private func addViews() {

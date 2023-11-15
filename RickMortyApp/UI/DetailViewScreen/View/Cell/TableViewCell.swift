@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+final class TableViewCell: UITableViewCell {
     // MARK: - properties
     private let mainView: UIView = {
         let element = UIView()
