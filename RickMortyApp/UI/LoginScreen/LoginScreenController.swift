@@ -8,7 +8,7 @@
 import UIKit
 
 class LoginScreenController: UIViewController {
-// MARK: - UIProperties
+    // MARK: - UIProperties
     private let emailView: UIView = {
         let element = UIView()
         element.backgroundColor = .systemGroupedBackground
@@ -48,7 +48,7 @@ class LoginScreenController: UIViewController {
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
-
+    
     private let emailTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Username"
@@ -56,7 +56,7 @@ class LoginScreenController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
-
+    
     private let passwordTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Password"
@@ -65,12 +65,12 @@ class LoginScreenController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
-
+    
     private let loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("L O G I N", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .deepGreen
+        button.backgroundColor = #colorLiteral(red: 0.005332739092, green: 0.1982556581, blue: 0.1359425783, alpha: 1)
         button.layer.cornerRadius = 15
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -83,17 +83,17 @@ class LoginScreenController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-
-// MARK: - properties
+    
+    // MARK: - properties
     let keychainManager = KeychainManager()
     
-// MARK: - life cycyle func
+    // MARK: - life cycyle func
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-
-// MARK: - flow funcs
+    
+    // MARK: - flow funcs
     func setupUI() {
         view.backgroundColor = .systemBackground
         addViews()
@@ -146,7 +146,7 @@ class LoginScreenController: UIViewController {
             passwordTextField.bottomAnchor.constraint(equalTo: passwordView.bottomAnchor, constant: -10),
             passwordTextField.topAnchor.constraint(equalTo: passwordView.topAnchor, constant: 10),
             passwordTextField.trailingAnchor.constraint(equalTo: passwordView.trailingAnchor, constant: -10),
-
+            
             loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 40),
             loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loginButton.leadingAnchor.constraint(equalTo: passwordView.leadingAnchor, constant: 40),
@@ -167,7 +167,7 @@ class LoginScreenController: UIViewController {
         present(alert, animated: true)
     }
     
-// MARK: - objc funcs
+    // MARK: - objc funcs
     @objc func loginButtonTapped() {
         guard let enteredEmail = emailTextField.text,
               let enteredpassword = passwordTextField.text else {
@@ -178,7 +178,7 @@ class LoginScreenController: UIViewController {
             username: enteredEmail,
             password: enteredpassword
         ){
-            let vc = UINavigationController(rootViewController: TabBarController())  // go to main VC
+            let vc = UINavigationController(rootViewController: TabBarController())
             vc.modalPresentationStyle = .fullScreen
             present(vc, animated: true)
             

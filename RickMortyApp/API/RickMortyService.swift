@@ -7,14 +7,10 @@
 
 import Foundation
 
-
-/// Основной объект для получения данных с API
 final class RickMortyService {
     
-    /// Cинглтон
     static let shared = RickMortyService()
     
-    /// приватный инициализатор
     private init() {}
     
     enum ServiceError: Error {
@@ -22,10 +18,6 @@ final class RickMortyService {
         case failedData
     }
     
-    /// Запрос в API
-    /// - Parameters:
-    ///   - request: экземпляр запроса
-    ///   - completion: ответ с данными или ошибкой
     public func execute<T: Codable>(
         _ request: RickMortyRequest,
         expecting type: T.Type,
@@ -39,7 +31,6 @@ final class RickMortyService {
                 completion(.failure(error ?? ServiceError.failedData))
                 return
             }
-            // декодинг данных из сети
             do{
                 let result = try JSONDecoder().decode(type.self, from: data)
                 completion(.success(result))

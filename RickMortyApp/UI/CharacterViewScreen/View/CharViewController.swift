@@ -8,7 +8,7 @@
 import UIKit
 
 final class CharViewController: UIViewController {
-// MARK: - properties
+    // MARK: - properties
     private let viewModel = CharacterViewModel()
     
     private let collectionView: UICollectionView = {
@@ -30,15 +30,15 @@ final class CharViewController: UIViewController {
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
-
-// MARK: - life cycle funcs
+    
+    // MARK: - life cycle funcs
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setUp()
     }
     
-// MARK: - flow funcs
+    // MARK: - flow funcs
     private func setUp() {
         setNavBar()
         setCollection()
@@ -55,7 +55,7 @@ final class CharViewController: UIViewController {
     
     private func setNavBar() {
         let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: (view.frame.height / 6.5)))
-        navigationBar.backgroundColor = .deepGreen
+        navigationBar.backgroundColor = #colorLiteral(red: 0.005332739092, green: 0.1982556581, blue: 0.1359425783, alpha: 1)
         
         let navigationItem = UINavigationItem(title: "Characters")
         navigationItem.largeTitleDisplayMode = .automatic
@@ -64,7 +64,6 @@ final class CharViewController: UIViewController {
         navigationBar.prefersLargeTitles = true
         navigationBar.isTranslucent = true
         
-        // Установите цвет текста для обычных и больших заголовков
         navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         

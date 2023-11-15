@@ -7,9 +7,8 @@
 
 import UIKit
 
-/// Кастомный таббар
 final class TabBarController: UITabBarController {
-// MARK: - life cycle func
+    // MARK: - life cycle func
     override func viewDidLoad() {
         super.viewDidLoad()
         generateTabBar()
@@ -19,40 +18,29 @@ final class TabBarController: UITabBarController {
 
 // MARK: - extension
 extension TabBarController{
-// MARK: - flow func
-    
-    /// Метод присвоения контроллера таббару
-    /// - Parameters:
-    ///   - vc: Вьюконтроллер
-    ///   - image: иконка контроллера
-    ///   - selectedImage: иконка контроллера когда он выбран
-    /// - Returns: возвращает контроллер для присвоения таббару
+    // MARK: - flow func
     func makeVC(vc: UIViewController, image: UIImage?, selectedImage: UIImage?) -> UIViewController {
         vc.tabBarItem.image = image
         vc.tabBarItem.selectedImage = selectedImage
         return vc
     }
     
-    /// Создает навКонтоллеры и передает их таббару
     func generateTabBar() {
-        
         viewControllers = [
-        makeVC(
-            vc: CharViewController(),
-            image: UIImage(systemName: "character.book.closed"),
-            selectedImage: UIImage(systemName: "character.book.closed.fill")
-        ),
-       
-        makeVC(
-            vc: LogOutViewController(),
-            image: UIImage(systemName: "figure.run.circle"),
-            selectedImage: UIImage(systemName: "figure.run.circle.fill")
-        )
+            makeVC(
+                vc: CharViewController(),
+                image: UIImage(systemName: "character.book.closed"),
+                selectedImage: UIImage(systemName: "character.book.closed.fill")
+            ),
+            
+            makeVC(
+                vc: LogOutViewController(),
+                image: UIImage(systemName: "figure.run.circle"),
+                selectedImage: UIImage(systemName: "figure.run.circle.fill")
+            )
         ]
     }
     
-    
-    /// Отрисовка через безье вьюшки для кастомного таббара
     func drawBezier() {
         let positionX: CGFloat = 60
         let positionY: CGFloat = -13

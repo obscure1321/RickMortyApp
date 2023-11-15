@@ -8,7 +8,7 @@
 import Foundation
 
 final class CollectionVIewCellViewModel {
-// MARK: - properties
+    // MARK: - properties
     public let characterName: String
     public let characterStatus: Status
     public let characterImgUrl: URL?
@@ -17,7 +17,7 @@ final class CollectionVIewCellViewModel {
         return characterStatus.rawValue
     }
     
-// MARK: - init
+    // MARK: - init
     init(
         characterName: String,
         characterStatus: Status,
@@ -28,7 +28,7 @@ final class CollectionVIewCellViewModel {
         self.characterImgUrl = characterImgUrl
     }
     
-// MARK: - func to get image
+    // MARK: - func to get image
     public func fetchImg(completion: @escaping (Result<Data, Error>) -> Void) {
         guard let url = characterImgUrl else {
             completion(.failure(URLError(.badURL)))

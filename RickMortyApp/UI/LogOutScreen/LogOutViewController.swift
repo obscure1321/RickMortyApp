@@ -8,7 +8,7 @@
 import UIKit
 
 final class LogOutViewController: UIViewController {
-// MARK: - properties
+    // MARK: - properties
     private let imgView: UIImageView = {
         let element = UIImageView()
         element.image = UIImage(named: "goodbye")
@@ -23,20 +23,20 @@ final class LogOutViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("L O G   O U T", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .deepGreen
+        button.backgroundColor = #colorLiteral(red: 0.005332739092, green: 0.1982556581, blue: 0.1359425783, alpha: 1)
         button.layer.cornerRadius = 15
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-
-// MARK: - life cycle func
+    
+    // MARK: - life cycle func
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
     }
-
-// MARK: - flow funcs
+    
+    // MARK: - flow funcs
     private func setUpView() {
         view.backgroundColor = .systemBackground
         view.addSubview(imgView)
@@ -48,7 +48,7 @@ final class LogOutViewController: UIViewController {
     
     private func setNavBar() {
         let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: (view.frame.height / 6.5)))
-        navigationBar.backgroundColor = .deepGreen
+        navigationBar.backgroundColor = #colorLiteral(red: 0.005332739092, green: 0.1982556581, blue: 0.1359425783, alpha: 1)
         
         let navigationItem = UINavigationItem(title: "Log Out")
         navigationItem.largeTitleDisplayMode = .automatic
@@ -57,7 +57,6 @@ final class LogOutViewController: UIViewController {
         navigationBar.prefersLargeTitles = true
         navigationBar.isTranslucent = true
         
-        // Установите цвет текста для обычных и больших заголовков
         navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
@@ -78,9 +77,9 @@ final class LogOutViewController: UIViewController {
         ])
     }
     
-// MARK: - objc func
+    // MARK: - objc func
     @objc func logOutTapped() {
-        let vc = LoginScreenController()  // go to main VC
+        let vc = LoginScreenController()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
         

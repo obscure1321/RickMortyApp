@@ -14,7 +14,7 @@ protocol CharacterViewModelProtocol: AnyObject {
 }
 
 public class CharacterViewModel {
-// MARK: - properties
+    // MARK: - properties
     weak var delegate: CharacterViewModelProtocol?
     
     var characters: [CharacterResult] = [] {
@@ -32,8 +32,7 @@ public class CharacterViewModel {
     
     var cellViewModels: [CollectionVIewCellViewModel] = []
     
-// MARK: - func to get data
-    ///  показывает только 20 персонажей
+    // MARK: - func to get data
     func fetchCharacters() {
         RickMortyService.shared.execute(.listCharacters,
                                         expecting: GetAllCharactersResponse.self

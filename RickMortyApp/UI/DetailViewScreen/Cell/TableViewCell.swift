@@ -8,7 +8,7 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-// MARK: - properties
+    // MARK: - properties
     private let mainView: UIView = {
         let element = UIView()
         element.backgroundColor = .systemGroupedBackground
@@ -31,7 +31,7 @@ class TableViewCell: UITableViewCell {
         return element
     }()
     
-// MARK: - init
+    // MARK: - init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: "TableViewCell")
         addSubview(mainView)
@@ -52,8 +52,8 @@ class TableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-// MARK: - flow func
+    
+    // MARK: - flow func
     func reuseCell(value: String) {
         episodeValue.text = value
     }

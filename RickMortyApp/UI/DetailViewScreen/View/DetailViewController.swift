@@ -8,7 +8,7 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
-// MARK: - variables
+    // MARK: - variables
     var episodesArray: [String] = []
     var episodesRawArray: [String] = []
     var genderText = ""
@@ -16,7 +16,7 @@ final class DetailViewController: UIViewController {
     var locationText = ""
     var imageUrl = ""
     
-// MARK: - properties
+    // MARK: - properties
     private let imgView: UIImageView = {
         let element = UIImageView()
         element.contentMode = .scaleToFill
@@ -71,7 +71,7 @@ final class DetailViewController: UIViewController {
     
     private let viewModel: DetailViewViewModel
     
-// MARK: - init
+    // MARK: - init
     init(viewModel: DetailViewViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -81,7 +81,7 @@ final class DetailViewController: UIViewController {
         fatalError("Unsupported")
     }
     
-// MARK: - life cycle func
+    // MARK: - life cycle func
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
@@ -91,7 +91,7 @@ final class DetailViewController: UIViewController {
         setLabels()
     }
     
-// MARK: - flow funcs
+    // MARK: - flow funcs
     private func configureView(){
         view.backgroundColor = .systemBackground
         title = viewModel.title
@@ -135,7 +135,7 @@ final class DetailViewController: UIViewController {
                 completion(nil)
                 return
             }
-
+            
             if let data = data, let image = UIImage(data: data) {
                 DispatchQueue.main.async {
                     completion(image)

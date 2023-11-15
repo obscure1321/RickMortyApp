@@ -7,9 +7,7 @@
 
 import Foundation
 
-/// Объект запроса
 final class RickMortyRequest {
-    //    https://rickandmortyapi.com/api/character/2
     private struct Constants {
         static let mainURL = "https://rickandmortyapi.com/api"
     }
@@ -20,7 +18,6 @@ final class RickMortyRequest {
     
     private let queryParameters: [URLQueryItem]
     
-    /// Создается ссылка для запроса  в виде стринги
     private var urlString: String {
         var string = Constants.mainURL
         string += "/"

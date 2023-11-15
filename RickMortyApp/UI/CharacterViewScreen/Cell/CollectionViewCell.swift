@@ -8,7 +8,7 @@
 import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
-// MARK: - properties
+    // MARK: - properties
     private let mainView: UIView = {
         let element = UIView()
         element.backgroundColor = .systemGroupedBackground
@@ -25,7 +25,6 @@ class CollectionViewCell: UICollectionViewCell {
     
     let imgView: UIImageView = {
         let element = UIImageView()
-//        element.image = UIImage(named: "maki")
         element.contentMode = .scaleToFill
         element.clipsToBounds = true
         element.layer.cornerRadius = 10
@@ -35,7 +34,6 @@ class CollectionViewCell: UICollectionViewCell {
     
     private let nameLabel: UILabel = {
         let element = UILabel()
-//        element.text = "Rick Sanches"
         element.textAlignment = .left
         element.font = UIFont.boldSystemFont(ofSize: element.font.pointSize)
         element.translatesAutoresizingMaskIntoConstraints = false
@@ -44,14 +42,13 @@ class CollectionViewCell: UICollectionViewCell {
     
     private let statusLabel: UILabel = {
         let element = UILabel()
-//        element.text = "Status: alive"
         element.textAlignment = .left
         element.font = UIFont.systemFont(ofSize: element.font.pointSize, weight: .thin)
         element.translatesAutoresizingMaskIntoConstraints = false
         return element
     }()
     
-// MARK: - init
+    // MARK: - init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setViews()
@@ -61,7 +58,7 @@ class CollectionViewCell: UICollectionViewCell {
         fatalError("Unsupported")
     }
     
-// MARK: - life cycle func
+    // MARK: - life cycle func
     override func prepareForReuse() {
         super.prepareForReuse()
         imgView.image = nil
@@ -69,7 +66,7 @@ class CollectionViewCell: UICollectionViewCell {
         statusLabel.text = nil
     }
     
-// MARK: - flow funcs
+    // MARK: - flow funcs
     func configure(with viewModel: CollectionVIewCellViewModel) {
         setConstraints()
         nameLabel.text = viewModel.characterName

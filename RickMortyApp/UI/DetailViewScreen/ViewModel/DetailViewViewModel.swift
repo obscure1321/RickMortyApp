@@ -8,7 +8,7 @@
 import Foundation
 
 final class DetailViewViewModel {
-// MARK: - properties
+    // MARK: - properties
     private let character: CharacterResult
     
     var imageUrl: URL?
@@ -17,7 +17,7 @@ final class DetailViewViewModel {
         character.name?.uppercased() ?? "Unknown"
     }
     
-// MARK: - init
+    // MARK: - init
     init(character: CharacterResult) {
         self.character = character
     }

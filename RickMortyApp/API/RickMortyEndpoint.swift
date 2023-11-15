@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-/// Конечный результат запроса
 @frozen enum RickMortyEndpoint: String {
     case character
     case location
