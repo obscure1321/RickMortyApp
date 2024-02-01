@@ -20,8 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if !isAuthorized {
             window.rootViewController = LoginScreenController()
+//            window.rootViewController = BezVC()
         } else {
             window.rootViewController = UINavigationController(rootViewController: TabBarController())
+//            window.rootViewController = BezVC()
         }
         
         window.makeKeyAndVisible()

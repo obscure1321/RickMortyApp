@@ -27,7 +27,18 @@
 		6DB46AF02B016A4000C4CA83 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB46AEF2B016A4000C4CA83 /* TableViewCell.swift */; };
 		6DB46AF22B02224300C4CA83 /* LoginScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB46AF12B02224300C4CA83 /* LoginScreenController.swift */; };
 		6DB46AF52B02241300C4CA83 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB46AF42B02241300C4CA83 /* KeychainManager.swift */; };
+		6DD706C92B52FC50007A2BFA /* RickMortyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD706C82B52FC50007A2BFA /* RickMortyAppTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6DD706CA2B52FC50007A2BFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DB46AA42AFBE43D00C4CA83 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6DB46AAB2AFBE43D00C4CA83;
+			remoteInfo = RickMortyApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6DB46AAC2AFBE43D00C4CA83 /* RickMortyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickMortyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,10 +63,19 @@
 		6DB46AEF2B016A4000C4CA83 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		6DB46AF12B02224300C4CA83 /* LoginScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenController.swift; sourceTree = "<group>"; };
 		6DB46AF42B02241300C4CA83 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		6DD706C62B52FC50007A2BFA /* RickMortyAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickMortyAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DD706C82B52FC50007A2BFA /* RickMortyAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickMortyAppTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		6DB46AA92AFBE43D00C4CA83 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DD706C32B52FC50007A2BFA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -183,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				6DB46AAE2AFBE43D00C4CA83 /* RickMortyApp */,
+				6DD706C72B52FC50007A2BFA /* RickMortyAppTests */,
 				6DB46AAD2AFBE43D00C4CA83 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -191,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				6DB46AAC2AFBE43D00C4CA83 /* RickMortyApp.app */,
+				6DD706C62B52FC50007A2BFA /* RickMortyAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -253,6 +275,14 @@
 			path = Keychain;
 			sourceTree = "<group>";
 		};
+		6DD706C72B52FC50007A2BFA /* RickMortyAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				6DD706C82B52FC50007A2BFA /* RickMortyAppTests.swift */,
+			);
+			path = RickMortyAppTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -273,6 +303,24 @@
 			productReference = 6DB46AAC2AFBE43D00C4CA83 /* RickMortyApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		6DD706C52B52FC50007A2BFA /* RickMortyAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6DD706CE2B52FC50007A2BFA /* Build configuration list for PBXNativeTarget "RickMortyAppTests" */;
+			buildPhases = (
+				6DD706C22B52FC50007A2BFA /* Sources */,
+				6DD706C32B52FC50007A2BFA /* Frameworks */,
+				6DD706C42B52FC50007A2BFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6DD706CB2B52FC50007A2BFA /* PBXTargetDependency */,
+			);
+			name = RickMortyAppTests;
+			productName = RickMortyAppTests;
+			productReference = 6DD706C62B52FC50007A2BFA /* RickMortyAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -285,6 +333,10 @@
 				TargetAttributes = {
 					6DB46AAB2AFBE43D00C4CA83 = {
 						CreatedOnToolsVersion = 15.0.1;
+					};
+					6DD706C52B52FC50007A2BFA = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 6DB46AAB2AFBE43D00C4CA83;
 					};
 				};
 			};
@@ -302,6 +354,7 @@
 			projectRoot = "";
 			targets = (
 				6DB46AAB2AFBE43D00C4CA83 /* RickMortyApp */,
+				6DD706C52B52FC50007A2BFA /* RickMortyAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -313,6 +366,13 @@
 			files = (
 				6DB46ABC2AFBE43E00C4CA83 /* LaunchScreen.storyboard in Resources */,
 				6DB46AB92AFBE43E00C4CA83 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6DD706C42B52FC50007A2BFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +404,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6DD706C22B52FC50007A2BFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DD706C92B52FC50007A2BFA /* RickMortyAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6DD706CB2B52FC50007A2BFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6DB46AAB2AFBE43D00C4CA83 /* RickMortyApp */;
+			targetProxy = 6DD706CA2B52FC50007A2BFA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6DB46ABA2AFBE43E00C4CA83 /* LaunchScreen.storyboard */ = {
@@ -484,6 +560,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KKDHHVW363;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RickMortyApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -511,6 +588,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KKDHHVW363;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RickMortyApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -531,6 +609,42 @@
 			};
 			name = Release;
 		};
+		6DD706CC2B52FC50007A2BFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-05.RickMortyAppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RickMortyApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RickMortyApp";
+			};
+			name = Debug;
+		};
+		6DD706CD2B52FC50007A2BFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-05.RickMortyAppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RickMortyApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RickMortyApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -548,6 +662,15 @@
 			buildConfigurations = (
 				6DB46AC12AFBE43E00C4CA83 /* Debug */,
 				6DB46AC22AFBE43E00C4CA83 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6DD706CE2B52FC50007A2BFA /* Build configuration list for PBXNativeTarget "RickMortyAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DD706CC2B52FC50007A2BFA /* Debug */,
+				6DD706CD2B52FC50007A2BFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

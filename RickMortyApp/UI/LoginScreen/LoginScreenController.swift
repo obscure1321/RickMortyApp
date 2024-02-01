@@ -101,6 +101,8 @@ final class LoginScreenController: UIViewController {
     func setupUI() {
         view.backgroundColor = .systemBackground
         addViews()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
     private func addViews() {
@@ -171,6 +173,10 @@ final class LoginScreenController: UIViewController {
     }
     
     // MARK: - objc funcs
+    @objc func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
     @objc func loginButtonTapped() {
         guard let enteredEmail = emailTextField.text,
               let enteredpassword = passwordTextField.text else {
